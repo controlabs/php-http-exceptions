@@ -19,8 +19,8 @@ class ResponseMessageTest extends \Controlabs\Tests\AbstractTestCase
             'error' => [
                 'code' => 400,
                 'message' => 'Bad Request',
-            ],
-            'errors' => $errors,
+                'errors' => $errors,
+            ]
         ];
         $this->assertSame($expected, $response);
     }
@@ -32,7 +32,7 @@ class ResponseMessageTest extends \Controlabs\Tests\AbstractTestCase
             'age' => 'Invalid age',
         ];
         $response = (new ResponseMessage(400, 'Bad Request', $errors))->toJson();
-        $expected = '{"error":{"code":400,"message":"Bad Request"},"errors":{"name":"Invalid name","age":"Invalid age"}}';
+        $expected = '{"error":{"code":400,"message":"Bad Request","errors":{"name":"Invalid name","age":"Invalid age"}}}';
         $this->assertEquals($expected, $response);
     }
 }

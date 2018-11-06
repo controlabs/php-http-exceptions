@@ -22,7 +22,7 @@ class ResponseMessage
             'code' => $this->code,
             'message' => $this->message,
         ];
-        ($this->data) && $error['errors'] = $this->data;
+        ($this->data) && $error['error']['errors'] = $this->data;
         return $error;
     }
 
